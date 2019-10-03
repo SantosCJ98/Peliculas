@@ -21,7 +21,7 @@ public class LogicaDeNegocio {
 
     public LogicaDeNegocio() {
 
-        peliculas = new ArrayList<>(List.of(new Pelicula("Spiderman into the Spiderverse", "Animación", new Date(), "Sony", "EEUU")));
+        peliculas = new ArrayList<>();
 
     }
 

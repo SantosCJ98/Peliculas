@@ -164,7 +164,7 @@ public class Editar1 extends javax.swing.JDialog {
 
         if (getTxtGenero().isEmpty() || getTxtGenero() == null) {
 
-            JOptionPane.showMessageDialog(this, "El genero no es válido", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "El género no es válido", "ERROR", JOptionPane.ERROR_MESSAGE);
 
             return false;
         }
