@@ -7,6 +7,7 @@ package dto;
 
 import gp.Pelicula;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -160,15 +161,17 @@ public class Editar2 extends javax.swing.JDialog {
             }
 
         }
-
+        
 
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
+   
+    
     public void editarycerrar() {
 
         String nombre = editar1.getTxtNombre();
 
-        String genero = editar1.getTxtGenero();
+        String genero = editar1.getGenero();
 
         Date fecha = dateFecha.getDate();
 
@@ -201,7 +204,7 @@ public class Editar2 extends javax.swing.JDialog {
 
         }
 
-        if (txtDirector.getText().isEmpty() || txtDirector.getText() == null) {
+        if (txtDirector.getText().isEmpty() || txtDirector.getText() == null ||  !txtDirector.getText().matches("([A-ZÑÁÉÍÓÚ]([a-zñáéíóú]+)\\s?)+")) {
 
             JOptionPane.showMessageDialog(this, "El director no es válido", "ERROR", JOptionPane.ERROR_MESSAGE);
 

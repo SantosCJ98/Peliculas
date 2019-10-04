@@ -9,6 +9,8 @@ import gp.Pelicula;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -201,7 +203,7 @@ public class ListaPeliculas extends javax.swing.JDialog {
 
     public String getGenero() {
 
-        return (String) jTable1.getValueAt(jTable1.getSelectedRow(), 1);
+        return (String)jTable1.getValueAt(jTable1.getSelectedRow(), 1);
 
     }
 

@@ -6,6 +6,10 @@
 package dto;
 
 import gp.Pelicula;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,10 +41,18 @@ public class Editar1 extends javax.swing.JDialog {
         lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         lblGenero = new javax.swing.JLabel();
-        txtGenero = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
+        accion = new javax.swing.JCheckBox();
+        cficcion = new javax.swing.JCheckBox();
+        comedia = new javax.swing.JCheckBox();
+        melodrama = new javax.swing.JCheckBox();
+        thriller = new javax.swing.JCheckBox();
+        romance = new javax.swing.JCheckBox();
+        musical = new javax.swing.JCheckBox();
+        drama = new javax.swing.JCheckBox();
+        fantasia = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -52,8 +64,6 @@ public class Editar1 extends javax.swing.JDialog {
 
         lblGenero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblGenero.setText("Género:");
-
-        txtGenero.setText(lstPelis.getGenero());
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTitulo.setText("Editar película");
@@ -74,6 +84,33 @@ public class Editar1 extends javax.swing.JDialog {
             }
         });
 
+        accion.setSelected(setMarcar(accion));
+        accion.setText("Acción");
+
+        cficcion.setSelected(setMarcar(cficcion));
+        cficcion.setText("C. Ficción");
+
+        comedia.setSelected(setMarcar(comedia));
+        comedia.setText("Comedia");
+
+        melodrama.setSelected(setMarcar(melodrama));
+        melodrama.setText("Melodrama");
+
+        thriller.setSelected(setMarcar(thriller));
+        thriller.setText("Thriller");
+
+        romance.setSelected(setMarcar(romance));
+        romance.setText("Romance");
+
+        musical.setSelected(setMarcar(musical));
+        musical.setText("Musical");
+
+        drama.setSelected(setMarcar(drama));
+        drama.setText("Drama");
+
+        fantasia.setSelected(setMarcar(fantasia));
+        fantasia.setText("Fantasía");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,28 +128,64 @@ public class Editar1 extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnSalir)
                         .addGap(5, 5, 5)))
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtNombre)
-                        .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnSiguiente))
-                .addGap(52, 52, 52))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSiguiente))
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(musical, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(accion)
+                                    .addComponent(drama))
+                                .addGap(4, 4, 4)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cficcion)
+                                    .addComponent(fantasia)))
+                            .addComponent(romance))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(thriller)
+                            .addComponent(melodrama)
+                            .addComponent(comedia))
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGenero)
-                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                    .addComponent(comedia)
+                    .addComponent(accion)
+                    .addComponent(cficcion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fantasia)
+                            .addComponent(melodrama))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(romance)
+                            .addComponent(thriller)
+                            .addComponent(musical)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(drama)
+                        .addComponent(lblGenero)))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalir)
                     .addComponent(btnSiguiente))
@@ -147,11 +220,85 @@ public class Editar1 extends javax.swing.JDialog {
 
     }
 
-    public String getTxtGenero() {
+    public String getGenero() {
 
-        return txtGenero.getText();
+        List<String> generos = new LinkedList<>();
+        
+        if (accion.isSelected()) {
+            
+            generos.add("Acción");
+            
+        }
+        
+        if (cficcion.isSelected()) {
+            
+            generos.add("C. Ficción");
+            
+        }
+        
+        if (comedia.isSelected()) {
+            
+            generos.add("Comedia");
+            
+        }
+        
+        if (drama.isSelected()) {
+            
+            generos.add("Drama");
+            
+        }
+        
+        if (fantasia.isSelected()) {
+            
+            generos.add("Fantasía");
+            
+        }
+        
+         if (melodrama.isSelected()) {
+            
+            generos.add("Melodrama");
+            
+        }
+         
+         if (musical.isSelected()) {
+            
+            generos.add("Musical");
+            
+        }
+         
+         if (romance.isSelected()) {
+            
+            generos.add("Romance");
+            
+        }
+         
+         if (thriller.isSelected()) {
+            
+            generos.add("Thriller");
+            
+        }
+         
+         return generos.stream().collect(Collectors.joining(", "));
 
     }
+    
+     public boolean setMarcar(JCheckBox check) {
+         
+         String [] generos = lstPelis.getGenero().split(", ");
+         
+         for (int i = 0; i < generos.length; i++) {
+             
+             if (generos[i].equals(check.getText())) {
+                 
+                 return true;
+                 
+             }
+             
+         }
+         
+         return false;
+        
+     }
 
     public boolean validarFormulario() {
 
@@ -162,9 +309,9 @@ public class Editar1 extends javax.swing.JDialog {
             return false;
         }
 
-        if (getTxtGenero().isEmpty() || getTxtGenero() == null) {
+        if (getGenero().isEmpty() || getGenero() == null) {
 
-            JOptionPane.showMessageDialog(this, "El género no es válido", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Debe haber al menos 1 género seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
 
             return false;
         }
@@ -172,14 +319,24 @@ public class Editar1 extends javax.swing.JDialog {
         return true;
 
     }
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox accion;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSiguiente;
+    private javax.swing.JCheckBox cficcion;
+    private javax.swing.JCheckBox comedia;
+    private javax.swing.JCheckBox drama;
+    private javax.swing.JCheckBox fantasia;
     private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTextField txtGenero;
+    private javax.swing.JCheckBox melodrama;
+    private javax.swing.JCheckBox musical;
+    private javax.swing.JCheckBox romance;
+    private javax.swing.JCheckBox thriller;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

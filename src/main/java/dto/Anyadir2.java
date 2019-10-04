@@ -7,6 +7,7 @@ package dto;
 
 import gp.Pelicula;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -162,7 +163,7 @@ public class Anyadir2 extends javax.swing.JDialog {
 
         String nombre = anyadir1.getTxtNombre();
 
-        String genero = anyadir1.getTxtGenero();
+        String genero = anyadir1.getGenero();
 
         Date fecha = dateFecha.getDate();
 
@@ -200,7 +201,7 @@ public class Anyadir2 extends javax.swing.JDialog {
 
         }
 
-        if (txtDirector.getText().isEmpty() || txtDirector.getText() == null) {
+        if (txtDirector.getText().isEmpty() || txtDirector.getText() == null || !txtDirector.getText().matches("([A-ZÑÁÉÍÓÚ]([a-zñáéíóú]+)\\s?)+")) {
 
             JOptionPane.showMessageDialog(this, "El director no es válido", "ERROR", JOptionPane.ERROR_MESSAGE);
 
