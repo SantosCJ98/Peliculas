@@ -193,7 +193,7 @@ public class Anyadir2 extends javax.swing.JDialog {
 
     public boolean validarFormulario() {
 
-        if (dateFecha.getDate() == null || !dateFecha.getDateFormatString().equals("d MMM y") || dateFecha.getDate().getYear() > new Date().getYear()) {
+        if (dateFecha.getDate() == null || !dateFecha.getDateFormatString().equals("d MMM y")) {
 
             JOptionPane.showMessageDialog(this, "La fecha no es válida", "ERROR", JOptionPane.ERROR_MESSAGE);
 
