@@ -196,7 +196,7 @@ public class Editar2 extends javax.swing.JDialog {
      */
     public boolean validarFormulario() {
 
-        if (dateFecha.getDate() == null || !dateFecha.getDateFormatString().equals("d MMM y")) {
+        if (dateFecha.getDate() == null || !dateFecha.getDateFormatString().equals("d MMM y") || dateFecha.getDate().getYear() > new Date().getYear()) {
 
             JOptionPane.showMessageDialog(this, "La fecha no es válida", "ERROR", JOptionPane.ERROR_MESSAGE);
 
